@@ -1,0 +1,92 @@
+/* Basic reset for tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+/* Header styling */
+thead {
+    background-color: #007bff;
+    color: white;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Table row styling */
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody td {
+    padding: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+/* Action column */
+td a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+td a:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* "Add Driver" Button */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Empty table message */
+td[colspan="6"] {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 20px;
+    color: #777;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.8rem;
+    }
+
+    td, th {
+        padding: 8px;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+    }
+
+    thead th {
+        padding: 8px;
+    }
+}

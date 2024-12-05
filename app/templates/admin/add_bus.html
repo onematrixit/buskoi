@@ -1,0 +1,32 @@
+<!-- app/templates/admin/add_bus.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_bus.css') }}">
+{% endblock %}
+
+{% block title %}Add Bus{% endblock %}
+
+{% block content %}
+<h2>Add Bus</h2>
+<form method="post" action="{{ url_for('admin.add_bus') }}">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.bus_number.label(class="form-label") }}
+        {{ form.bus_number(class="form-control") }}
+        {% for error in form.bus_number.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div class="form-group">
+        {{ form.model.label(class="form-label") }}
+        {{ form.model(class="form-control") }}
+        {% for error in form.model.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

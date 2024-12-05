@@ -1,0 +1,47 @@
+<!-- app/templates/admin/manage_routes.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage_routes.css') }}">
+{% endblock %}
+
+{% block title %}Manage Routes{% endblock %}
+
+{% block content %}
+<h2>Manage Routes</h2>
+
+<a href="{{ url_for('admin.add_route') }}" class="btn btn-primary mb-3">Add Route</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Route Name</th>
+            <th>Direction</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if routes %}
+            {% for route in routes %}
+            <tr>
+                <td>{{ route.name }}</td>
+                <td>{{ route.direction }}</td>
+                <td>
+                    <a href="{{ url_for('admin.edit_route', route_id=route.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ url_for('admin.delete_route', route_id=route.id) }}" method="POST" style="display:inline;">
+                        {{ delete_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this route?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="3">No routes available.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

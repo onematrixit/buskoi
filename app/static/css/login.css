@@ -1,0 +1,158 @@
+/* app/static/css/login.css */
+
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff; /* White background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 375px;
+    height: auto; /* Adjusts dynamically based on content */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 220px;
+    height: auto;
+    margin-bottom: 15px;
+    background-color: #00154f;
+    border-radius: 50%;
+    margin-bottom: 90px;
+}
+
+.login-heading {
+    font-size: 24px;
+    font-weight: 900;
+    color: #00154f;
+    margin: 0;
+    margin-top: -80px;
+}
+
+/* Form Section */
+.form-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%; /* Ensures input fields align properly */
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #ffa500;
+    font-size: 18px;
+    z-index: 1; /* Makes sure the icon stays visible */
+}
+
+.input-group i.fa-eye {
+    right: 15px;
+    left: auto;
+    cursor: pointer;
+    color: #ffa500;
+}
+
+.form-input {
+    width: 80%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #00154f;
+    background-color: #f9f9f9;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #ffa500;
+    background-color: #fff;
+}
+
+/* Forgot Password */
+.forgot-password {
+    color: #ffa500;
+    font-size: 14px;
+    text-align: right;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #00154f;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #002b7f;
+}
+
+/* Indicator Dots */
+.indicator {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #888;
+}
+
+.yellow-dot {
+    width: 20px; /* Larger width for yellow dot */
+    border-radius: 10px;
+    background-color: #ffa500;
+}
+
+.red-dot {
+    background-color: red;
+}
+
+.blue-dot {
+    background-color: blue;
+}

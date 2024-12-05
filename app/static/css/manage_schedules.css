@@ -1,0 +1,168 @@
+/* app/static/css/manage_schedules.css */
+
+/* Container Styling */
+.manage-schedules-container {
+    max-width: 1200px;
+    margin: 80px auto 100px auto; /* Top margin accounts for the fixed top bar */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.manage-schedules-container h2 {
+    text-align: center;
+    color: #00154f;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Add Schedule Button */
+.add_schedule_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00154f;
+    color: #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add_schedule_btn:hover {
+    background-color: #002b7f;
+    transform: translateY(-2px);
+}
+
+/* Table Styling */
+.manage-schedules-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.manage-schedules-container th, .manage-schedules-container td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.manage-schedules-container th {
+    background-color: #00154f;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.manage-schedules-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.manage-schedules-container tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Action Buttons */
+.manage-schedules-container .btn-sm {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.manage-schedules-container .btn-warning {
+    background-color: #f0ad4e;
+    color: #ffffff;
+    border: none;
+}
+
+.manage-schedules-container .btn-warning:hover {
+    background-color: #ec971f;
+    transform: translateY(-2px);
+}
+
+.manage-schedules-container .btn-danger {
+    background-color: #d9534f;
+    color: #ffffff;
+    border: none;
+}
+
+.manage-schedules-container .btn-danger:hover {
+    background-color: #c9302c;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .manage-schedules-container {
+        padding: 15px;
+    }
+
+    .manage-schedules-container h2 {
+        font-size: 24px;
+    }
+
+    .add_schedule_btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .manage-schedules-container th, .manage-schedules-container td {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .manage-schedules-container .btn-sm {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .manage-schedules-container h2 {
+        font-size: 22px;
+    }
+
+    .add_schedule_btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .manage-schedules-container table, 
+    .manage-schedules-container thead, 
+    .manage-schedules-container tbody, 
+    .manage-schedules-container th, 
+    .manage-schedules-container td, 
+    .manage-schedules-container tr { 
+        display: block; 
+    }
+
+    .manage-schedules-container thead tr {
+        display: none;
+    }
+
+    .manage-schedules-container tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .manage-schedules-container td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 12px;
+    }
+
+    .manage-schedules-container td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #00154f;
+    }
+
+    .manage-schedules-container .btn-sm {
+        margin-top: 5px;
+    }
+}

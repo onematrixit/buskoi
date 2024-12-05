@@ -1,0 +1,59 @@
+<!-- app/templates/admin/add_driver.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_driver.css') }}">
+{% endblock %}
+
+{% block title %}Add Driver{% endblock %}
+
+{% block content %}
+<h2>Add Driver</h2>
+<form method="post" action="{{ url_for('admin.add_driver') }}">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+        {{ form.name.label(class="form-label") }}
+        {{ form.name(class="form-control", placeholder="Enter driver name") }}
+        {% for error in form.name.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.address.label(class="form-label") }}
+        {{ form.address(class="form-control", placeholder="Enter driver address") }}
+        {% for error in form.address.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.phone.label(class="form-label") }}
+        {{ form.phone(class="form-control", placeholder="Enter contact number") }}
+        {% for error in form.phone.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.route_id.label(class="form-label") }}
+        {{ form.route_id(class="form-control") }}
+        {% for error in form.route_id.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.bus_id.label(class="form-label") }}
+        {{ form.bus_id(class="form-control") }}
+        {% for error in form.bus_id.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    {{ form.submit(class="btn btn-primary mt-3") }}
+</form>
+{% endblock %}

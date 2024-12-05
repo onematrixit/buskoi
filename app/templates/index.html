@@ -1,0 +1,102 @@
+
+
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- Assign URLs to variables to avoid quote conflicts -->
+{% set live_schedule_url = url_for('main.live_schedule') %}
+{% set home_url = url_for('main.home') %}
+{% set live_location_url = url_for('main.live_location') %}
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <button class="close-btn" id="closeSidebar">&times;</button>
+    <ul class="sidebar-menu">
+        {% if current_user.is_authenticated %}
+            {% if current_user.is_admin %}
+                <li><a href="{{ url_for('admin.dashboard') }}">Admin Dashboard</a></li>
+                <!-- Add more admin links here -->
+            {% else %}
+                <li><a href="{{ url_for('user.dashboard') }}">User Dashboard</a></li>
+                <!-- Add more user links here -->
+            {% endif %}
+            <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+        {% else %}
+            <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+        {% endif %}
+    </ul>
+</div>
+
+<!-- Top Bar -->
+<!-- <div class="top-bar">
+    <i class="fas fa-bars menu-icon" id="openSidebar"></i>
+    <span class="app-title">BusKoi</span>
+</div> -->
+
+<!-- Page Content -->
+<div class="content">
+    <!-- Toggle Buttons -->
+    <div class="card-section">
+        <div class="card home-to-university active" id="homeToUniversity">
+            <i class="fas fa-school card-icon"></i>
+            <p>Home to <br><strong>University</strong></p>
+        </div>
+        <div class="card university-to-home" id="universityToHome">
+            <i class="fas fa-house-user card-icon"></i>
+            <p>University to <br><strong>Home</strong></p>
+        </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-section">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" placeholder="Search your area">
+    </div>
+
+    <!-- List Section -->
+    <div id="list-section">
+        <!-- Home to University Content -->
+        <div class="location-list" id="home-list">
+            {% for route in routes_home_to_university %}
+            <div class="location-item">
+                <i class="fas fa-map-marker-alt location-icon"></i>
+                <a href="{{ url_for('main.schedule', route_id=route.id) }}">
+                    <p class="location-name">{{ route.name }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- University to Home Content -->
+        <div class="location-list hidden" id="university-list">
+            {% for route in routes_university_to_home %}
+            <div class="location-item">
+                <i class="fas fa-map-marker-alt location-icon"></i>
+                <a href="{{ url_for('main.schedule', route_id=route.id) }}">
+                    <p class="location-name">{{ route.name }}</p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Navigation Bar -->
+<div class="nav-bar">
+    <button id="live-schedule-btn" class="nav-btn" onclick="navigateTo('{{ live_schedule_url }}')">
+        <i class="fas fa-clock"></i>
+        <span>Live Schedule</span>
+    </button>
+    <button id="home-btn" class="nav-btn active" onclick="navigateTo('{{ home_url }}')">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+    </button>
+    <button id="live-location-btn" class="nav-btn" onclick="navigateTo('{{ live_location_url }}')">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Live Location</span>
+    </button>
+</div>
+
+<!-- Custom Scripts -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}

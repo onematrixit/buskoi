@@ -1,0 +1,29 @@
+<!-- app/templates/user/live_updates.html -->
+
+{% extends 'base.html' %}
+{% block title %}Live Schedule{% endblock %}
+{% block content %}
+<h2>Live Bus Schedule</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Bus Number</th>
+            <th>Driver Name</th>
+            <th>Contact Number</th>
+            <th>Departure Time</th>
+            <th>Live Until</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for schedule in live_schedules %}
+        <tr>
+            <td>{{ schedule.bus.bus_number }}</td>
+            <td>{{ schedule.bus.driver.name if schedule.bus.driver else 'N/A' }}</td>
+            <td>{{ schedule.bus.driver.contact_number if schedule.bus.driver else 'N/A' }}</td>
+            <td>{{ schedule.departure_time }}</td>
+            <td>{{ schedule.live_until }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

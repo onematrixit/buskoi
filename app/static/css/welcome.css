@@ -1,0 +1,154 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Matching font style */
+    background-color: #00154f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Blue Section */
+.top-section {
+    background-color: #00154f;
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px; /* Adjusted font size */
+    margin: 0;
+    font-weight: 1600;
+    z-index: 2;
+    font-family:sans-serif;
+}
+
+.logo img {
+    width: 220px; /* Adjusted for visual balance */
+    height: auto;
+    margin: 20px 0;
+    z-index: 2;
+    background-color: #244297;
+    border-radius: 50%;
+}
+
+p {
+    font-size: 28px; /* Adjusted font size */
+    margin: 10px 0;
+    font-weight: 900;
+    z-index: 2;
+}
+
+/* Bottom White Section */
+.bottom-section {
+    flex: 1;
+    position: relative;
+    background-color: #fff;
+    border-top-left-radius: 60px; /* Rounded top-left corner */
+    border-top-right-radius: 60px; /* Rounded top-right corner */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px; /* Raise the middle of the white section */
+    overflow: hidden;
+}
+
+/* Toggle Button */
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.toggle-button {
+    width: 160px;
+    height: 50px;
+    background-color: #ffa500;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+.toggle-button .circle {
+    width: 40px;
+    height: 40px;
+    background-color: #00154f;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    transition: all 0.4s ease;
+}
+
+.toggle-button span {
+    position: absolute;
+    left: 60px;
+    font-size: 16px;
+    color: #00154f;
+    font-weight: bold;
+    transition: all 0.4s ease;
+}
+
+.toggle-button.toggled .circle {
+    left: 115px;
+}
+
+.toggle-button.toggled span {
+    left: 20px;
+}
+
+/* Indicator Dots */
+.indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #888;
+}
+
+.yellow-dot {
+    width: 20px; /* Larger width for yellow dot */
+    border-radius: 10px;
+    background-color: #ffa500;
+}
+
+.red-dot {
+    background-color: red;
+}
+
+.blue-dot {
+    background-color: blue;
+}

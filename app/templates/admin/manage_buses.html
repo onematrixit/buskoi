@@ -1,0 +1,49 @@
+<!-- app/templates/admin/manage_buses.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage_buses.css') }}">
+{% endblock %}
+
+{% block title %}Manage Buses{% endblock %}
+
+{% block content %}
+<h2>Manage Buses</h2>
+
+<a href="{{ url_for('admin.add_bus') }}" class="btn btn-primary mb-3">Add Bus</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Bus Number</th>
+            <th>Model</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if buses %}
+            {% for bus in buses %}
+            <tr>
+                <td>{{ bus.bus_number }}</td>
+                <td>{{ bus.model }}</td>
+                <td>{{ bus.status }}</td>
+                <td>
+                    <a href="{{ url_for('admin.edit_bus', bus_id=bus.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ url_for('admin.delete_bus', bus_id=bus.id) }}" method="POST" style="display:inline;">
+                        {{ delete_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this bus?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="4">No buses available.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

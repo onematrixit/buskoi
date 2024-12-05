@@ -1,0 +1,53 @@
+<!-- app/templates/admin/manage_drivers.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/manage_drivers.css') }}">
+{% endblock %}
+
+{% block title %}Manage Drivers{% endblock %}
+
+{% block content %}
+<h2>Manage Drivers</h2>
+
+<a href="{{ url_for('admin.add_driver') }}" class="btn btn-primary mb-3">Add Driver</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Route</th>
+            <th>Bus</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if drivers %}
+            {% for driver in drivers %}
+            <tr>
+                <td>{{ driver.name }}</td>
+                <td>{{ driver.phone }}</td>
+                <td>{{ driver.address }}</td>
+                <td>{{ driver.route.name if driver.route else 'N/A' }}</td>
+                <td>{{ driver.bus.bus_number if driver.bus else 'N/A' }}</td>
+                <td>
+                    <a href="{{ url_for('admin.edit_driver', driver_id=driver.id) }}" class="btn btn-sm btn-warning">Edit</a>
+                    <form action="{{ url_for('admin.delete_driver', driver_id=driver.id) }}" method="POST" style="display:inline;">
+                        {{ delete_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this driver?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6">No drivers available.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

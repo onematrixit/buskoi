@@ -1,0 +1,9 @@
+<!-- app/templates/bottom_navbar.html -->
+
+<nav class="navbar fixed-bottom navbar-light bg-light">
+    <div class="container justify-content-around">
+        <a href="{{ url_for('main.index') }}" class="navbar-brand">Home</a>
+        <a href="{{ url_for('user.live_schedules') }}" class="navbar-brand">Live Schedule</a>
+        <a href="{{ url_for('user.live_location') }}" class="navbar-brand">Live Location</a>
+    </div>
+</nav>

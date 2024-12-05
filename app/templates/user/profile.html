@@ -1,0 +1,15 @@
+<!-- Profile Section with Tooltip -->
+<div class="profile-section">
+    <div class="profile-pic-container">
+        {% if current_user.profile_pic %}
+            <img src="{{ url_for('static', filename='profile_pics/' + current_user.profile_pic) }}" alt="Profile Picture" class="profile-pic" title="Click to edit profile">
+        {% else %}
+            <img src="{{ url_for('static', filename='profile_pics/default.jpg') }}" alt="Default Profile Picture" class="profile-pic" title="Click to edit profile">
+        {% endif %}
+    </div>
+    <div class="profile-info">
+        <h4>{{ current_user.username }}</h4>
+        <p>{{ current_user.email }}</p>
+    </div>
+    <a href="{{ url_for('admin.profile') }}" class="edit-profile-link">Edit Profile</a>
+</div>

@@ -1,0 +1,30 @@
+/* app/static/css/manage_routes.css */
+
+/* Example styles for the Manage Routes page */
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.table {
+    background-color: #fff;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn {
+    margin-right: 5px;
+}

@@ -1,0 +1,158 @@
+/* app/static/css/live_schedule.css */
+
+/* Container Styling */
+.live-schedule-container {
+    max-width: 1200px;
+    margin: 80px auto 100px auto; /* Top margin accounts for the fixed top bar */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.live-schedule-container h2 {
+    text-align: center;
+    color: #00154f;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Table Styling */
+.schedule-table-container {
+    overflow-x: auto;
+}
+
+.live-schedule-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.live-schedule-container th, .live-schedule-container td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.live-schedule-container th {
+    background-color: #00154f;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.live-schedule-container tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.live-schedule-container tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Call Icon Styling */
+.call-icon {
+    color: #00154f;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.call-icon:hover {
+    color: #ffa500;
+    transform: scale(1.2);
+    text-decoration: none;
+}
+
+/* Countdown Timer Styling */
+.countdown {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* No Schedules Message */
+.no-schedules {
+    text-align: center;
+    color: #777777;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .live-schedule-container {
+        padding: 15px;
+    }
+
+    .live-schedule-container h2 {
+        font-size: 24px;
+    }
+
+    .live-schedule-container th, .live-schedule-container td {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .call-icon {
+        font-size: 16px;
+    }
+
+    .countdown {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .live-schedule-container h2 {
+        font-size: 22px;
+    }
+
+    .live-schedule-container table, 
+    .live-schedule-container thead, 
+    .live-schedule-container tbody, 
+    .live-schedule-container th, 
+    .live-schedule-container td, 
+    .live-schedule-container tr { 
+        display: block; 
+    }
+
+    .live-schedule-container thead tr {
+        display: none;
+    }
+
+    .live-schedule-container tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .live-schedule-container td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 12px;
+    }
+
+    .live-schedule-container td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #00154f;
+        width: 120px;
+    }
+
+    .live-schedule-container td:last-child {
+        justify-content: center;
+    }
+
+    .call-icon {
+        font-size: 16px;
+    }
+
+    .countdown {
+        font-size: 14px;
+    }
+
+    .no-schedules {
+        font-size: 16px;
+    }
+}

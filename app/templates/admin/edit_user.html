@@ -1,0 +1,71 @@
+<!-- app/templates/admin/edit_user.html -->
+
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit_user.css') }}">
+{% endblock %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+<h2>Edit User</h2>
+<form method="POST" action="{{ url_for('admin.edit_user', user_id=user.id) }}" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    
+    <div class="form-group">
+        {{ form.username.label(class="form-label") }}
+        {{ form.username(class="form-control") }}
+        {% for error in form.username.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control") }}
+        {% for error in form.email.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.phone.label(class="form-label") }}
+        {{ form.phone(class="form-control") }}
+        {% for error in form.phone.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.password.label(class="form-label") }}
+        {{ form.password(class="form-control") }}
+        {% for error in form.password.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+        <small class="form-text text-muted">Leave blank if you don't want to change the password.</small>
+    </div>
+    
+    <div class="form-group">
+        {{ form.is_admin.label(class="form-label") }}
+        {{ form.is_admin() }}
+        {% for error in form.is_admin.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+    </div>
+    
+    <div class="form-group">
+        {{ form.profile_pic.label(class="form-label") }}
+        {{ form.profile_pic(class="form-control-file") }}
+        {% for error in form.profile_pic.errors %}
+            <span class="text-danger">{{ error }}</span>
+        {% endfor %}
+        {% if user.profile_pic %}
+            <img src="{{ url_for('static', filename='profile_pics/' + user.profile_pic) }}" alt="Profile Picture" class="mt-2" width="100">
+        {% endif %}
+    </div>
+    
+    <button type="submit" class="btn btn-primary mt-3">{{ form.submit.label.text }}</button>
+</form>
+{% endblock %}
